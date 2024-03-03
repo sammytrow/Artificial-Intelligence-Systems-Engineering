@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Place Details</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../javascript/api.js"></script>
+  </head>
+  <body>
+    <div style='width:500px; height:500px; overflow:none;' id="map"></div>
+        <div style="'clear:both;"></div>
+
+    <input type="text" id="address" placeholder="Address"/>
+    <input type="text" id="activity" placeholder="Activity"/>
+    <button onclick="get_activity()" type="button">
+		example
+	</button>
+
+        <div style="'clear:both;"></div>
+    <button onclick="initMap()" type="button">
+        Show Map
+    </button>
+	<button onclick="initialize('Oxford', 'Cinema')" type="button">
+		get places example
+	</button>
+	<button onclick="place_list('Oxford', 'Cinema')" type="button">
+		get places
+	</button>
+	<button onclick="codeAddress('Oxford')" type="button">
+		show location
+	</button>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtpRT_czAAl0TJb5c0jnAtD2FK-Y9TG4I&callback=initMap&libraries=places&v=weekly"
+      async
+    ></script>
+  </body>
+</html>

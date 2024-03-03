@@ -1,0 +1,84 @@
+How to connect 
+
+1)To access the AWS linux EC2 from windows – Putty need to be installed. 
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html
+and give the below inputs to putty and then connect 
+SSH/ Auth/ privatekey for authentication: Private_key.ppk (uploaded to bitbucket) 
+Hostname: ec2-user@ ec2-54-160-192-161.compute-1.amazonaws.com 
+
+2) Mysql login credentials
+ Endpoint: mysql-db.cbvvxkzv412m.us-east-1.rds.amazonaws.com 
+ Port : 3306 
+ Database name: ItenaryPlannerdb 
+ Password: database 
+command to login: mysql -u admin -h mysql-db.cbvvxkzv412m.us-east-1.rds.amazonaws.com -p 
+
+3) Commands to run Django server 
+ cd pydjangoenv 
+ source env/bin/activate 
+ cd ItenaryPlanner 
+ python manage.py runserver 0.0.0.0:8000 
+ 
+ 
+ 
+ Installation Procedure 
+ 
+1)Created a Amazon web service account and a virtual EC2 machine also launched 
+2)Installation of Apache server and MariaDB Database in AWS EC2 machine (Not used anymore) 
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
+Walkthrough: Set up an Apache web server and serve Amazon EFS files - Amazon Elastic File System
+How to Install Apache Web Server on Amazon Linux 2 - CloudKatha
+How To Install MariaDB 10.6 on Amazon Linux 2 | ComputingForGeeks
+3) Installation of Django server and MySQL database 
+ 
+Setting up a Django + MySQL Development Environment on AWS EC2 Linux 2 - Bing video
+Python3 -m venv pydjangoenv/env - create a directory for django 
+cd pydjangoenv - to change the working directory 
+source env/bin/activate 
+pip install django - to install django 
+pip install mysqlclient – to install mysql 
+ 
+Django-admin startproject ItenaryPlanner – a new project named ItenaryPlanner created 
+Cd ItenaryPlanner – manage.py and ItenaryPlanner in this directory 
+Cd ItenaryPlanner – settings.py in the ItenaryPlanner folder 
+Nano settings.py - nano command is used to edit the settings.py ( databases and accessible host 
+updated) 
+CD.. 
+Python manage.py runserver 0.0.0.0:8000 - to run the Django server 
+ 
+https://stackoverflow.com/questions/20239232/django-server-error-port-is-already-in-use - used to 
+resolve an error in tcp usage 
+ 
+Writing your first Django app, part 1 | Django documentation | Django (djangoproject.com) - the 
+procedure in this page is used to create a sample web page 
+>Filename is used to create an empty file 
+ 
+ 
+ 
+ 
+ 
+ 
+ GUI – Matedesktop for server and Mysql workbench for database 
+a) Mysql workbench 
+Installation details available in Create and Connect to a MySQL Database with Amazon RDS
+Login details 
+Hostname: mysql-db.cbvvxkzv412m.us-east-1.rds.amazonaws.com 
+Port : 3306 
+User name: admin 
+Password: database 
+Database is made publicly accessible - Connecting a MySQL workbench to Amazon Web Services’ 
+Relational Database Service | by Ryan Zhou | Medium
+b) Mate Desktop + tigervnc viewer
+Installation details - https://aws.amazon.com/premiumsupport/knowledge-center/ec2-linux-2-
+install-gui/
+Install tigervnc64-x.y.z.exe (64-bit) or tigervnc-x.y.z.exe (32-bit), where x.y.z represents the latest 
+version. https://tigervnc.org/ 
+When opening the connection with PuTTY, configure port forwarding, and then open the connection:
+ From the Connection menu, select SSH, and then select Tunnels.
+ Enter 5901 in the Source Port field.
+ Enter localhost:5901 in the Destination field.
+ Select Add. 
+Open SSH 
+Then open tigervnc viewer, 
+Username: localhost:1 
+Password: matedesktop
